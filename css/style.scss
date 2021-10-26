@@ -1,0 +1,76 @@
+$yellow: #ffcc2a;
+$blue: #2d415e;
+$white: #ffffff;
+
+$bg-dark: #fdfdfd;
+
+$head-text-color: #2c2c2c;
+$head-text-size: 60px;
+$head-text-height: 74px;
+
+$main-text-color: #545454;
+$main-text-size: 16px;
+$main-text-height: 29px;
+
+$weight-regular: 400;
+$weight-semi-bold: 600;
+
+$bg: #ffffff;
+$bg-2: #f8f8f8;
+
+$line: #3b8d96;
+$line-2: #ccede0;
+
+.visually-hidden {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+.container {
+  width: 1140px;
+  margin: 0 auto;
+}
+
+.bg--dark {
+  background-color: $bg-dark;
+}
+
+.button {
+  border: none;
+  background: none;
+  padding: 18px 40px;
+  border-radius: 31px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: $weight-semi-bold;
+}
+
+.button--accent {
+  color: $head-text-color;
+  background-color: $yellow;
+}
+
+.button--secondary {
+  color: $blue;
+  border: 1px solid $blue;
+  background-color: $white;
+}
+
+/* Promo */
+.promo {
+  h2 {
+    color: $head-text-color;
+    font-size: $head-text-size;
+    line-height: $head-text-height;
+  }
+
+  p {
+    color: $main-text-color;
+    font-size: $main-text-size;
+    line-height: $main-text-height;
+  }
+}

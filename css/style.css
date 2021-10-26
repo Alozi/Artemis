@@ -1,0 +1,52 @@
+.visually-hidden {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+.container {
+  width: 1140px;
+  margin: 0 auto;
+}
+
+.bg--dark {
+  background-color: #fdfdfd;
+}
+
+.button {
+  border: none;
+  background: none;
+  padding: 18px 40px;
+  border-radius: 31px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+}
+
+.button--accent {
+  color: #2c2c2c;
+  background-color: #ffcc2a;
+}
+
+.button--secondary {
+  color: #2d415e;
+  border: 1px solid #2d415e;
+  background-color: #ffffff;
+}
+
+/* Promo */
+.promo h2 {
+  color: #2c2c2c;
+  font-size: 60px;
+  line-height: 74px;
+}
+
+.promo p {
+  color: #545454;
+  font-size: 16px;
+  line-height: 29px;
+}
+/*# sourceMappingURL=style.css.map */
