@@ -1,25 +1,43 @@
 $yellow: #ffcc2a;
+$yellow-text: #ffcd00;
 $blue: #2d415e;
 $white: #ffffff;
-
+$white-text: #fffaec;
+$white-bg: #f8f8f8;
 $bg-dark: #fdfdfd;
-
 $head-text-color: #2c2c2c;
-$head-text-size: 60px;
-$head-text-height: 74px;
-
 $main-text-color: #545454;
-$main-text-size: 16px;
-$main-text-height: 29px;
-
-$weight-regular: 400;
-$weight-semi-bold: 600;
-
-$bg: #ffffff;
-$bg-2: #f8f8f8;
 
 $line: #3b8d96;
 $line-2: #ccede0;
+
+$font-family-open-sans: "Open Sans", sans-serif;
+$font-family-georgia: Georgia, "Times New Roman", Times, serif;
+$head-text-size: 60px;
+$head-text-height: 74px;
+$head2-text-size: 48px;
+$head2-text-height: 64px;
+$main-text-size: 16px;
+$main-text-height: 29px;
+$weight-regular: 400;
+$weight-semi-bold: 600;
+
+@mixin rotate($degrees) {
+  -webkit-transform: rotate($degrees);
+  -moz-transform: rotate($degrees);
+  -ms-transform: rotate($degrees);
+  -o-transform: rotate($degrees);
+  transform: rotate($degrees);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-family-open-sans;
+  font-weight: $weight-regular;
+  font-size: $main-text-size;
+  line-height: $main-text-height;
+}
 
 .visually-hidden {
   position: absolute;
@@ -36,16 +54,13 @@ $line-2: #ccede0;
   margin: 0 auto;
 }
 
-.bg--dark {
-  background-color: $bg-dark;
-}
-
 .button {
+  cursor: pointer;
+  text-decoration: none;
   border: none;
   background: none;
   padding: 18px 40px;
   border-radius: 31px;
-  font-family: "Open Sans", sans-serif;
   font-weight: $weight-semi-bold;
 }
 
@@ -60,17 +75,217 @@ $line-2: #ccede0;
   background-color: $white;
 }
 
+.bg--dark {
+  background-color: $white-bg;
+}
+
 /* Promo */
 .promo {
+  padding: 115px 0 125px;
+  background: url(../img/animation.png) no-repeat bottom right;
+  background-color: $bg-dark;
+  .promo__wrapper {
+    width: 560px;
+  }
   h2 {
-    color: $head-text-color;
+    font-family: $font-family-georgia;
     font-size: $head-text-size;
     line-height: $head-text-height;
+    color: $head-text-color;
+    margin-bottom: 24px;
   }
-
   p {
-    color: $main-text-color;
     font-size: $main-text-size;
     line-height: $main-text-height;
+    color: $main-text-color;
+    margin-bottom: 56px;
+  }
+  .button {
+    margin-right: 20px;
+  }
+}
+
+/* Statistics */
+.statistics {
+  padding: 120px 0;
+  .statistics__list {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 120px 95px 100px;
+    background: url(../img/image.svg) no-repeat top right $blue;
+    border-radius: 20px;
+    &::before {
+      content: "";
+      position: absolute;
+      top: -30px;
+      left: -85px;
+      width: 63px;
+      height: 77px;
+      background: url(../img/icon-decor-1.svg) no-repeat;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 150px;
+      left: -100px;
+      width: 203px;
+      height: 203px;
+      background: linear-gradient(
+        180deg,
+        #ffffff 1.19%,
+        rgba(255, 255, 255, 0.0001) 99.58%
+      );
+      mix-blend-mode: normal;
+      opacity: 0.05;
+      border-radius: 32px;
+      transform: matrix(0.71, -0.71, -0.71, -0.71, 0, 0);
+      @include rotate(45deg);
+    }
+  }
+  .statistics__item {
+    margin-right: 90px;
+    dt {
+      font-size: $head-text-size;
+      line-height: 82px;
+      font-weight: $weight-semi-bold;
+      color: $yellow-text;
+    }
+    dd {
+      font-size: $main-text-size;
+      line-height: 22px;
+      font-weight: $weight-semi-bold;
+      color: $white-text;
+      margin: 0;
+    }
+  }
+}
+
+/* Offer */
+.offer {
+  .offer__title {
+    position: relative;
+    font-family: $font-family-georgia;
+    font-size: $head2-text-size;
+    line-height: $head2-text-height;
+    font-weight: $weight-regular;
+    color: $head-text-color;
+    text-align: center;
+    margin: 20px 0 80px;
+    &::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      right: 0;
+      width: 72px;
+      height: 72px;
+      background: url(../img/icon-decor-2.svg) no-repeat;
+    }
+  }
+  .card {
+    padding: 110px 0;
+  }
+  .card__wrapper {
+    display: flex;
+    gap: 30px;
+  }
+  .card__description-column {
+    width: 475px;
+    h3 {
+      font-family: $font-family-georgia;
+      font-size: $head2-text-size;
+      line-height: $head2-text-height;
+      font-weight: $weight-regular;
+      color: $head-text-color;
+      margin-bottom: 24px;
+    }
+    p {
+      font-size: $main-text-size;
+      line-height: $main-text-height;
+      color: $main-text-color;
+      margin-bottom: 56px;
+    }
+  }
+  .card__description-column--decor {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 5px;
+      right: 10px;
+      width: 58px;
+      height: 58px;
+      background: url(../img/icon-decor-3.svg) no-repeat;
+    }
+  }
+}
+
+/* Video-block */
+
+/* Feedback */
+.feedback {
+  padding: 64px 0 97px;
+  .feedback__title {
+    font-family: $font-family-georgia;
+    font-size: $head2-text-size;
+    line-height: $head2-text-height;
+    font-weight: $weight-regular;
+    color: $head-text-color;
+    width: 640px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  .feedback__wrapper {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    width: 885px;
+    margin: 0 auto;
+    background: $white-bg;
+    border-radius: 26px 20px 20px 26px;
+  }
+  .contacts {
+    padding: 50px 40px;
+    background: url(../img/contacts-bg.svg) no-repeat;
+    background-size: contain;
+  }
+  .contacts_item {
+    margin-bottom: 50px;
+    h3 {
+      font-size: 32px;
+      line-height: 44px;
+      font-weight: $weight-regular;
+      color: $white;
+      margin: 0 0 30px;
+    }
+    a {
+      font-size: $main-text-size;
+      line-height: 22px;
+      color: $white;
+      text-decoration: none;
+    }
+  }
+  .form {
+    padding: 45px 40px;
+    h3 {
+      font-size: 32px;
+      line-height: 44px;
+      font-weight: $weight-regular;
+      color: $head-text-color;
+      margin: 0 0 30px;
+    }
+    form {
+      display: grid;
+    }
+    input {
+      background: $white-bg;
+      border: none;
+      border-bottom: 1px solid #2c2c2c;
+      padding: 7px 0;
+      margin-bottom: 40px;
+    }
+    .button {
+      justify-self: center;
+    }
   }
 }
