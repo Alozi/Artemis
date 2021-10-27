@@ -13,6 +13,7 @@
 </head>
 
 <body>
+  <!--
   <header class="header">
     <div class="container">
       <nav class="navigation">
@@ -43,8 +44,11 @@
       </nav>
     </div>
   </header>
+  -->
+
   <main>
     <h1 class="visually-hidden">Website Artemis</h1>
+
     <section class="promo">
       <div class="container">
         <div class="promo__wrapper">
@@ -116,15 +120,84 @@
               the Artemis priority.</p>
             <button class="button button--accent">Contact Us</button>
           </div>
-
         </div>
       </div>
     </section>
-    <!--
+
     <section class="video-block container">
-      <h2>What’s New?</h2>
+      <h2 class="video-block__title">What’s New?</h2>
+      <div class="carousel" id="carousel">
+        <button class="slide-button prev">
+          <svg width="50" height="49" viewBox="0 0 50 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g opacity="0.6">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M49.0702 24.5C49.0702 10.969 38.1012 0 24.5702 0C11.0392 0 0.0701904 10.969 0.0701904 24.5C0.0701904 38.031 11.0392 49 24.5702 49C38.1012 49 49.0702 38.031 49.0702 24.5ZM25.7844 32.4734L18.8938 25.5828C18.2957 24.9848 18.2957 24.0154 18.8937 23.4173L25.7843 16.5267C26.3822 15.9287 27.3518 15.9287 27.9498 16.5267C28.5478 17.1246 28.5478 18.0942 27.9498 18.6922L22.1419 24.5001L27.9498 30.308C28.9171 31.2753 28.219 32.922 26.8671 32.922C26.4753 32.922 26.0834 32.7724 25.7844 32.4734Z"
+                fill="#C0C2C3" />
+            </g>
+          </svg>
+        </button>
+        <div class="carousel__wrapper">
+          <ul class="video-list">
+            <li class="video-list__item">
+              <h3>Merdeka Belajar & Sekolah Alternatif - Artemis Impact Podcast #5</h3>
+              <div class="video-list__wrapper">
+                <video poster="img/slider-image-1.png" width="310" height="273">
+                  <source src="video.mp4" type="video/mp4">
+                </video>
+              </div>
+            </li>
+            <li class="video-list__item">
+              <h3>We Are Watching You - Artemis Impact Podcast #4</h3>
+              <div class="video-list__wrapper">
+                <video poster="img/slider-image-2.png" width="310" height="273">
+                  <source src="video.mp4" type="video/mp4">
+                </video>
+              </div>
+            </li>
+            <li class="video-list__item">
+              <h3>NGO dan Komunitas Lingkungan di Indonesia - Artemis Impact Podcast #3s</h3>
+              <div class="video-list__wrapper">
+                <video class="lesson-video" poster="img/slider-image-3.png" width="310" height="273">
+                  <source src="video.mp4" type="video/mp4">
+                </video>
+              </div>
+            </li>
+            <li class="video-list__item">
+              <h3>We Are Watching You - Artemis Impact Podcast #4</h3>
+              <div class="video-list__wrapper">
+                <video poster="img/slider-image-2.png" width="310" height="273">
+                  <source src="video.mp4" type="video/mp4">
+                </video>
+              </div>
+            </li>
+            <li class="video-list__item">
+              <h3>NGO dan Komunitas Lingkungan di Indonesia - Artemis Impact Podcast #3s</h3>
+              <div class="video-list__wrapper">
+                <video class="lesson-video" poster="img/slider-image-3.png" width="310" height="273">
+                  <source src="video.mp4" type="video/mp4">
+                </video>
+              </div>
+            </li>
+            <li class="video-list__item">
+              <h3>Merdeka Belajar & Sekolah Alternatif - Artemis Impact Podcast #5</h3>
+              <div class="video-list__wrapper">
+                <video poster="img/slider-image-1.png" width="310" height="273">
+                  <source src="video.mp4" type="video/mp4">
+                </video>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <button class="slide-button next">
+          <svg width="50" height="49" viewBox="0 0 50 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M0.92981 24.5C0.92981 10.969 11.8988 0 25.4298 0C38.9608 0 49.9298 10.969 49.9298 24.5C49.9298 38.031 38.9608 49 25.4298 49C11.8988 49 0.92981 38.031 0.92981 24.5ZM24.2156 32.4734L31.1062 25.5828C31.7043 24.9848 31.7043 24.0154 31.1063 23.4173L24.2157 16.5267C23.6178 15.9287 22.6482 15.9287 22.0502 16.5267C21.4522 17.1246 21.4522 18.0942 22.0502 18.6922L27.8581 24.5001L22.0502 30.308C21.0829 31.2753 21.781 32.922 23.1329 32.922C23.5247 32.922 23.9166 32.7724 24.2156 32.4734Z"
+              fill="#C0C2C3" />
+          </svg>
+        </button>
+      </div>
     </section>
--->
+
     <section class="feedback container">
       <h2 class="feedback__title">Start your Social Impact Journey Today</h2>
       <div class="feedback__wrapper">
@@ -152,14 +225,103 @@
             <input type="text" name="form-message" id="form-message" placeholder="Message">
             <button class="button button--accent" type="submit">Submit</button>
           </form>
-
         </div>
       </div>
     </section>
-
-
   </main>
 
+  <footer class="footer">
+    <div class="footer__row container">
+      <div class="footer__column">
+        <a href="#">
+          <img src="img/logo.png" alt="Logo Artemis" width="115" height="24">
+        </a>
+      </div>
+      <div class="footer__column">
+        <p class="footer__category">Company</p>
+        <ul class="service-navigation">
+          <li class="service-navigation__item">
+            <a href="#">About Us</a>
+          </li>
+          <li class="service-navigation__item">
+            <a href="#">Contact Us</a>
+          </li>
+          <li class="service-navigation__item">
+            <a href="#">Blog</a>
+          </li>
+          <li class="service-navigation__item">
+            <a href="#">Vlog</a>
+          </li>
+          <li class="service-navigation__item">
+            <a href="#">Podcast</a>
+          </li>
+          <li class="service-navigation__item">
+            <a href="#">Case studies</a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer__column">
+        <p class="footer__category">Services</p>
+        <ul class="service-navigation">
+          <li class="service-navigation__item">
+            <a href="#">Outcome-based funding</a>
+          </li>
+          <li class="service-navigation__item">
+            <a href="#">Advisory services</a>
+          </li>
+          <li class="service-navigation__item">
+            <a href="#">Outcome measurement application</a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer__column">
+        <p class="footer__category">Contact</p>
+        <ul class="contact-list">
+          <li class="contact-list__item contact-list__item--phone">
+            <a href="tel:+6285894442405">+62-858-9444-2405</a>
+          </li>
+          <li class="contact-list__item contact-list__item--mail">
+            <a href="mailto:contact@artemis.im">contact@artemis.im</a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer__column">
+        <p class="footer__category">Follow Us</p>
+        <ul class="social-list">
+          <li class="social-list__item">
+            <a href="#">
+              <img src="icons/icon-social-youtube.svg" width="20" height="20" alt="Перейти на Youtube сайта Artemis">
+            </a>
+          </li>
+          <li class="social-list__item">
+            <a href="#">
+              <img src="icons/icon-social-linkedin.svg" width="20" height="20" alt="Перейти на Linkedin сайта Artemis">
+            </a>
+          </li>
+          <li class="social-list__item">
+            <a href="#">
+              <img src="icons/icon-social-facebook.svg" width="20" height="20" alt="Перейти на Facebook сайта Artemis">
+            </a>
+          </li>
+          <li class="social-list__item">
+            <a href="#">
+              <img src="icons/icon-social-instagram.svg" width="20" height="20"
+                alt="Перейти на Instagram сайта Artemis">
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <div class="container">
+        <p>All rights reserved (c) Artemis 2020</p>
+      </div>
+    </div>
+
+  </footer>
+
+  <script src="script.js"></script>
 </body>
+
 
 </html>
