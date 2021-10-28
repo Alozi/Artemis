@@ -21,6 +21,8 @@ $head2-text-size: 48px;
 $head2-text-height: 64px;
 $main-text-size: 16px;
 $main-text-height: 29px;
+$link-text-size: 14px;
+$link-text-height: 19px;
 $weight-regular: 400;
 $weight-semi-bold: 600;
 
@@ -38,6 +40,30 @@ $weight-semi-bold: 600;
   -ms-transform: translate($x, $y);
   -o-transform: translate($x, $y);
   transform: translate($x, $y);
+}
+
+@mixin transition {
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -ms-transform: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+
+@mixin scale($x) {
+  -webkit-transform: scale($x);
+  -moz-transform: scale($x);
+  -ms-transform: scale($x);
+  -o-transform: scale($x);
+  transform: scale($x);
+}
+
+@mixin scaleY($x) {
+  -webkit-transform: scaleY($x);
+  -moz-transform: scaleY($x);
+  -ms-transform: scaleY($x);
+  -o-transform: scaleY($x);
+  transform: scaleY($x);
 }
 
 body {
@@ -66,6 +92,10 @@ body {
   padding-right: 15px;
 }
 
+.bg--dark {
+  background-color: $white-bg;
+}
+
 .button {
   cursor: pointer;
   text-decoration: none;
@@ -87,14 +117,218 @@ body {
   background-color: $white;
 }
 
-.bg--dark {
-  background-color: $white-bg;
+.button--bg-hide {
+  @include transition();
+  border: 1px solid $yellow;
+  &:hover {
+    color: $yellow;
+    border-color: $yellow;
+    background: transparent;
+  }
+}
+
+.button--bg-show {
+  @include transition();
+  &:hover {
+    color: $white;
+    background: $blue;
+  }
+}
+
+.button--scale {
+  @include transition();
+}
+
+.button--scale:hover {
+  @include scale(1.2);
+}
+
+.button--animation {
+  --background: #ffcc2a;
+  --text: #2c2c2c;
+  --font-size: 16px;
+  --duration: 0.44s;
+  --move-hover: -4px;
+  --font-shadow: var(--font-size);
+  line-height: var(--font-size);
+  border-radius: 24px;
+  display: block;
+  outline: none;
+  text-decoration: none;
+  font-size: var(--font-size);
+  letter-spacing: 0.5px;
+  background: var(--background);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  transform: translateY(var(--y)) translateZ(0);
+  transition: transform var(--duration) ease, box-shadow var(--duration) ease;
+  div {
+    display: flex;
+    overflow: hidden;
+    text-shadow: 0 var(--font-shadow) 0 var(--text);
+    span {
+      display: block;
+      backface-visibility: hidden;
+      font-style: normal;
+      transition: transform var(--duration) ease;
+      transform: translateY(var(--m)) translateZ(0);
+      $i: 1;
+      @while $i < 12 {
+        &:nth-child(#{$i}) {
+          transition-delay: $i / 20 + s;
+        }
+        $i: $i + 1;
+      }
+    }
+  }
+  &:hover {
+    --y: var(--move-hover);
+    --shadow: var(--shadow-hover);
+    span {
+      --m: calc(var(--font-size) * -1);
+    }
+  }
+}
+
+/* Header */
+.header {
+  background: $white;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.0826049);
+  padding: 25px 0;
+}
+
+.navigation {
+  display: grid;
+  grid-template-columns: 145px 1fr;
+  justify-items: center;
+  align-items: center;
+  .navigation__burger-button {
+    display: none;
+    border: none;
+    width: 34px;
+    height: 34px;
+    background: url(../icons/icon-burger.svg) no-repeat;
+  }
+  .navigation__wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    justify-items: center;
+    align-items: center;
+  }
+  .navigation__social {
+    display: none;
+  }
+  ul {
+    margin: 0;
+  }
+  li {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    font-size: $link-text-size;
+    line-height: $link-text-height;
+    color: $blue;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.navigation-list {
+  display: flex;
+  flex-wrap: wrap;
+  .navigation-list__item {
+    margin-right: 36px;
+    &:last-child {
+      margin-right: 0;
+    }
+    &:hover {
+      .submenu {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+  .navigation-list__item--attachments {
+    position: relative;
+    &::after {
+      position: absolute;
+      content: "";
+      top: 50%;
+      right: -15px;
+      width: 10px;
+      height: 4px;
+      background: url(../icons/icon-arrow.svg) no-repeat;
+      background-size: contain;
+    }
+  }
+}
+
+.submenu {
+  @include transition();
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  width: 723px;
+  top: 35px;
+  left: -150px;
+  background: $white;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.0826049);
+  border-radius: 10px;
+  padding: 40px 48px;
+  display: flex;
+  column-gap: 40px;
+  a {
+    display: block;
+  }
+}
+
+.user-navigation {
+  display: grid;
+  grid-template-columns: auto 40px;
+  column-gap: 35px;
+  position: relative;
+  button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    position: relative;
+    &::after {
+      position: absolute;
+      content: "";
+      top: 6px;
+      right: -10px;
+      width: 10px;
+      height: 4px;
+      background: url(../icons/icon-arrow.svg) no-repeat;
+      background-size: contain;
+    }
+  }
+}
+
+.submenu-languages {
+  position: absolute;
+  padding: 10px;
+  background: $white;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.0826049);
+  border-radius: 10px;
+  opacity: 0;
+  @include scaleY(0);
+  transform-origin: 0 0;
+  @include transition();
+}
+
+.submenu-languages--open {
+  opacity: 1;
+  @include scaleY(1);
 }
 
 /* Promo */
 .promo {
   padding: 115px 0 125px;
-  background: url(../img/animation.png) no-repeat bottom right;
+  background: url(../img/animation.png) no-repeat top right;
   background-color: $bg-dark;
   .promo__wrapper {
     width: 560px;
@@ -420,6 +654,7 @@ body {
     display: grid;
   }
   input {
+    outline: none;
     background: $white-bg;
     border: none;
     border-bottom: 1px solid #2c2c2c;
@@ -456,8 +691,8 @@ body {
   }
   a {
     text-decoration: none;
-    font-size: 14px;
-    line-height: 19px;
+    font-size: $link-text-size;
+    line-height: $link-text-height;
     color: $head-text-color;
     &:hover {
       cursor: pointer;
@@ -505,6 +740,10 @@ body {
     width: 260px;
     height: 230px;
   }
+
+  .footer {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 991px) {
@@ -513,9 +752,126 @@ body {
   $head2-text-size: 38px;
   $head2-text-height: 54px;
 
+  .header {
+    padding: 0;
+    .container {
+      padding: 0;
+    }
+  }
+
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 15px;
+    .navigation__menu {
+      padding: 0;
+      width: 95%;
+      margin-bottom: 25px;
+    }
+    .navigation__burger-button {
+      display: block;
+    }
+    .navigation__wrapper {
+      position: absolute;
+      top: 50px;
+      left: 0;
+      background: $white;
+      opacity: 0;
+      @include scaleY(0);
+      transform-origin: 0 0;
+      @include transition();
+    }
+    .navigation__wrapper--open {
+      opacity: 1;
+      @include scaleY(1);
+    }
+    .navigation__social {
+      justify-self: start;
+      display: flex;
+      .social-list__item {
+        margin-right: 15px;
+      }
+    }
+    .navigation__users {
+      justify-self: end;
+    }
+  }
+
+  .navigation-list {
+    display: block;
+    grid-column: 1 / -1;
+    .navigation-list__item {
+      position: relative;
+      margin-right: 0;
+      a {
+        display: block;
+        font-size: 24px;
+        line-height: 40px;
+        border-bottom: 1px solid $line-3;
+        padding-top: 20px;
+      }
+    }
+    .navigation-list__item--attachments {
+      &::after {
+        top: 30px;
+        right: 10px;
+        width: 20px;
+        height: 8px;
+      }
+    }
+  }
+
+  .submenu {
+    position: absolute;
+    opacity: 0;
+    @include scaleY(0);
+    transform-origin: 0 0;
+    @include transition();
+
+    display: block;
+    height: 1px;
+
+    position: static;
+    width: auto;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    .submenu__img,
+    .submenu__description {
+      display: none;
+    }
+    .submenu__item a {
+      font-size: 16px;
+      line-height: 22px;
+      border: none;
+      padding: 12px;
+    }
+    p {
+      margin: 0;
+    }
+  }
+
+  .submenu--open {
+    opacity: 1;
+    @include scaleY(1);
+    height: auto;
+  }
+
+  .social-list {
+    padding: 0 15px;
+  }
+
+  .user-navigation {
+    padding: 0 15px;
+    /*  display: grid;
+  grid-template-columns: auto 40px;
+  column-gap: 35px;*/
+  }
+
   .promo {
     padding: 60px 0;
-    background: none;
+    background: #fdfdfd;
     .promo__wrapper {
       width: auto;
     }

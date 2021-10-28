@@ -13,42 +13,108 @@
 </head>
 
 <body>
-  <!--
+
   <header class="header">
     <div class="container">
       <nav class="navigation">
         <a class="navigation__logo" href="#">
           <img src="img/logo.png" alt="Logo Artemis" width="143" height="30">
         </a>
-        <ul class="navigation-list">
-          <li class="navigation-list__item">
-            <a href="#">Services</a>
-          </li>
-          <li class="navigation-list__item">
-            <a href="#">About Us</a>
-          </li>
-          <li class="navigation-list__item">
-            <a href="#">Blog</a>
-          </li>
-          <li class="navigation-list__item">
-            <a href="#">Contact Us</a>
-          </li>
-          <li class="navigation-list__item">
-            <a href="#">Podcast</a>
-          </li>
-        </ul>
-        <div class="user-navigation">
-          <div class="user-navigation__item languages"></div>
-          <div class="user-navigation__item search"></div>
+        <button class="navigation__burger-button" id="burger-button"></button>
+        <div class="navigation__wrapper" id="burger-menu">
+          <ul class="navigation__menu navigation-list">
+            <li class="navigation-list__item navigation-list__item--attachments" id="submenu-button">
+              <a href="#">Services</a>
+              <ul class="submenu" id="submenu">
+                <li class="submenu__item">
+                  <a href="#">
+                    <img class="submenu__img" src="icons/icon-menu-1.svg" alt="">
+                    <p class="submenu__title">Outcome-based funding</p>
+                    <p class="submenu__description">Maximize your social value per dollar spent</p>
+                  </a>
+                </li>
+                <li class="submenu__item">
+                  <a href="#">
+                    <img class="submenu__img" src="icons/icon-menu-2.svg" alt="">
+                    <p class="submenu__title">Advisory services</p>
+                    <p class="submenu__description">Aling your CSR activities with your core business value</p>
+                  </a>
+                </li>
+                <li class="submenu__item">
+                  <a href="#">
+                    <img class="submenu__img" src="icons/icon-menu-3.svg" alt="">
+                    <p class="submenu__title">Impact measurement app</p>
+                    <p class="submenu__description">Become an impact-driven & data-driven organization</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="navigation-list__item">
+              <a href="#">About Us</a>
+            </li>
+            <li class="navigation-list__item">
+              <a href="#">Blog</a>
+            </li>
+            <li class="navigation-list__item">
+              <a href="#">Contact Us</a>
+            </li>
+            <li class="navigation-list__item">
+              <a href="#">Podcast</a>
+            </li>
+          </ul>
+          <ul class="navigation__social social-list">
+            <li class="social-list__item">
+              <a href="#">
+                <img src="icons/icon-social-youtube.svg" width="20" height="20" alt="Перейти на Youtube сайта Artemis">
+              </a>
+            </li>
+            <li class="social-list__item">
+              <a href="#">
+                <img src="icons/icon-social-linkedin.svg" width="20" height="20"
+                  alt="Перейти на Linkedin сайта Artemis">
+              </a>
+            </li>
+            <li class="social-list__item">
+              <a href="#">
+                <img src="icons/icon-social-facebook.svg" width="20" height="20"
+                  alt="Перейти на Facebook сайта Artemis">
+              </a>
+            </li>
+            <li class="social-list__item">
+              <a href="#">
+                <img src="icons/icon-social-instagram.svg" width="20" height="20"
+                  alt="Перейти на Instagram сайта Artemis">
+              </a>
+            </li>
+          </ul>
+          <div class="navigation__users user-navigation">
+            <div class="user-navigation__item user-navigation__item--languages">
+              <button id="submenu-languages-button">English</button>
+              <ul class="submenu-languages" id="submenu-languages">
+                <li class="submenu-languages__item">
+                  <a href="#">Ukrainian</a>
+                </li>
+                <li class="submenu-languages__item">
+                  <a href="#">Russian</a>
+                </li>
+                <li class="submenu-languages__item">
+                  <a href="#">Polish</a>
+                </li>
+              </ul>
+            </div>
+            <div class="user-navigation__item user-navigation__item--search">
+              <a href="#">
+                <img src="icons/search.svg" width="15" height="15" alt="">
+              </a>
+            </div>
+          </div>
         </div>
       </nav>
     </div>
   </header>
-  -->
 
   <main>
     <h1 class="visually-hidden">Website Artemis</h1>
-
     <section class="promo">
       <div class="container">
         <div class="promo__wrapper">
@@ -57,8 +123,8 @@
             connected changes that achieve measurable results. Artemis was founded to create these positive connections,
             and achieve these results with our impact-driven focus!</p>
           <div class="promo__buttons">
-            <a class="button button--accent" href="#">Download App</a>
-            <a class="button button--secondary" href="#">Get in touch</a>
+            <a class="button button--accent button--bg-hide" href="#">Download App</a>
+            <a class="button button--secondary button--bg-show" href="#">Get in touch</a>
           </div>
         </div>
       </div>
@@ -97,7 +163,7 @@
               transparent and measurable, data-driven results for you & your stakeholders. We cater to projects in all
               stages:
               Pre-funding, Already funded.</p>
-            <button class="button button--accent">Contact Us</button>
+            <button class="button button--accent button--scale">Contact Us</button>
           </div>
           <div class="card__img-column">
             <img src="img/Image 2.svg" width="701" height="501" alt="">
@@ -118,7 +184,7 @@
               the targeted results required to create a sustainable impact supported with transparent, data-driven
               reports is always
               the Artemis priority.</p>
-            <button class="button button--accent">Contact Us</button>
+            <button class="button button--accent button--scale">Contact Us</button>
           </div>
         </div>
       </div>
@@ -223,7 +289,7 @@
             <input type="email" name="form-email" id="form-email" placeholder="Email">
             <label for="form-message" class="visually-hidden">Message</label>
             <input type="text" name="form-message" id="form-message" placeholder="Message">
-            <button class="button button--accent" type="submit">Submit</button>
+            <button class="button button--accent button--animation" type="submit">Submit</button>
           </form>
         </div>
       </div>
